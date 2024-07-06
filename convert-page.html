@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert</title>
+    <link rel="stylesheet" href="style/convert-page.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="convert-title"><span class="line">|</span>Date Converter</h1>
+        <a class="close" href="index.html">X</a>
+      </header>
+
+      <div class="content">
+        <form class="date-form" onsubmit="return false;">
+          <div class="select-option">
+            <label>Convert to: </label>
+            <select class="selector">
+              <option value="shamsi">Shamsi</option>
+              <option value="gregorian">Gregorian</option>
+            </select>
+          </div>
+
+          <div class="inputs">
+            <label class="inputs">Year</label><br />
+            <input type="number" class="year inputs" placeholder="yyyy" /><br />
+            <label class="inputs">Month</label><br />
+            <input type="number" class="month inputs" placeholder="mm" /><br />
+            <label class="inputs">Day</label><br />
+            <input type="number" class="day inputs" placeholder="dd" /><br />
+            <button class="convert-btn inputs">Convert</button>
+          </div>
+        </form>
+        <div class="preview">
+          <h2 class="prev-title">Converted to:</h2>
+          <div class="converted-date">Year / Month / Day</div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import jalaali from "https://cdn.skypack.dev/jalaali-js";
+
+      document
+        .querySelector(".convert-btn")
+        .addEventListener("click", convertDate);
+
+      function convertDate() {
+        const convertTo = document.querySelector(".selector").value;
+        const year = parseInt(document.querySelector(".year").value);
+        const month = parseInt(document.querySelector(".month").value);
+        const day = parseInt(document.querySelector(".day").value);
+
+        // Ensure inputs are valid numbers
+        if (isNaN(year) || isNaN(month) || isNaN(day)) {
+          document.querySelector(".converted-date").innerText =
+            "Please enter valid numbers";
+          return;
+        }
+
+        let convertedDate;
+
+        if (convertTo === "gregorian") {
+          // Convert the Shamsi date to Gregorian date
+          const gregorianDate = jalaali.toGregorian(year, month, day);
+          convertedDate = `Gregorian Date: ${gregorianDate.gy}-${gregorianDate.gm}-${gregorianDate.gd}`;
+        } else {
+          // Convert the Gregorian date to Shamsi date
+          const shamsiDate = jalaali.toJalaali(year, month, day);
+          convertedDate = `Shamsi Date: ${shamsiDate.jy}-${shamsiDate.jm}-${shamsiDate.jd}`;
+        }
+
+        document.querySelector(".converted-date").innerText = convertedDate;
+      }
+    </script>
+  </body>
+</html>

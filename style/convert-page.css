@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-image: url(../images/timepic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.906);
+  border-radius: 5px;
+  width: 50vw;
+  margin: 20vh auto;
+  box-shadow: 0 10px 10px 0 rgba(130, 9, 9, 0.842);
+  padding: 32px;
+}
+
+.convert-title {
+  color: green;
+}
+
+.line {
+  color: darkred;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.close:link,
+.close:visited {
+  color: rgba(130, 9, 9, 0.842);
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+.close:hover,
+.close:active {
+  font-size: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  position: relative;
+}
+
+.select-option {
+  text-align: right;
+}
+
+.inputs {
+  display: inline-block;
+  width: 60%;
+  margin-bottom: 10px;
+}
+
+.preview {
+  position: absolute;
+  top: 50%;
+  right: 40%;
+  transform: translate(80%, -50%);
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev-title {
+  color: rgba(130, 9, 9, 0.842);
+}
+.convert-btn {
+  background-color: green;
+  color: #fff;
+}
+
+.selector {
+  background-color: green;
+  color: #fff;
+  width: 100px;
+  text-align: center;
+}
