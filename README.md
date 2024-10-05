@@ -40,7 +40,7 @@ To run the project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/date-converter.git
+   git clone https://github.com/codewizard-01/Date-Converter.git
    ```
 2. **Open the application**: Simply open `index.html` in your browser to start converting dates.
 
